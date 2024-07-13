@@ -1,4 +1,4 @@
-// 
+// getting problem in code coverage
 import org.python.Checkout
 import org.python.Sonarqube
 import org.python.Dependency
@@ -25,9 +25,5 @@ def call_coverage() {
 def calldependency() {
     new Dependency().call()
 }
-
-// def callCoverage() {
-//     new CoveragePython.call()
-// }
 
 
