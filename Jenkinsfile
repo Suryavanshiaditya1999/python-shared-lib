@@ -18,6 +18,13 @@ pipeline {
                 }
             }
         }
+        stage('Coverage') {
+            steps {
+                script {
+                    attendance.callDependency()
+                }
+            }
+        }
         
     }
 }
