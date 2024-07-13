@@ -33,14 +33,24 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Dependency') {
             steps {
-                script {
-                    attendance.calldependency()
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        attendance.calldependency()
+                    }
                 }
             }
         }
+        
+        // stage('Dependency') {
+        //     steps {
+        //         script {
+        //             attendance.calldependency()
+        //         }
+        //     }
+        // }
                
     }
 }
