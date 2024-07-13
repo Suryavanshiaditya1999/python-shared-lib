@@ -18,13 +18,13 @@ pipeline {
                 }
             }
         }
-        stage('Dependency') {
-            steps {
-                script {
-                    attendance.callDependency()
-                }
-            }
-        }
+        // stage('Dependency') {
+        //     steps {
+        //         script {
+        //             attendance.callDependency()
+        //         }
+        //     }
+        // }
         // stage('Sonarqube') {
         //     steps {
         //         script {
