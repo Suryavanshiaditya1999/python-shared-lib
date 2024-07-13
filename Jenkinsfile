@@ -11,13 +11,13 @@ pipeline {
                 }
             }
         }
-        // stage('Coverage') {
-        //     steps {
-        //         script {
-        //             attendance.callCoverage()
-        //         }
-        //     }
-        // }
+        stage('Sonarqube') {
+            steps {
+                script {
+                    attendance.callSonarqube()
+                }
+            }
+        }
         stage('Dependency') {
             steps {
                 script {
@@ -25,6 +25,13 @@ pipeline {
                 }
             }
         }
+        // stage('Sonarqube') {
+        //     steps {
+        //         script {
+        //             attendance.callSonarqube()
+        //         }
+        //     }
+        // }
         
     }
 }
