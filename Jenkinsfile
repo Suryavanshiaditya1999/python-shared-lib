@@ -24,16 +24,14 @@ pipeline {
         }
         stage('Unit Testing') {
             steps {
-                script {
-                    attendance.call_unit_testing()
-                }
-            }
-            post {
-                always {
-                    echo 'Executing next step regardless of Unit Testing success or failure.'
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        attendance.call_unit_testing()
+                    }
                 }
             }
         }
+        
         stage('Dependency') {
             steps {
                 script {
