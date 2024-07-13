@@ -28,6 +28,11 @@ pipeline {
                     attendance.call_unit_testing()
                 }
             }
+            post {
+                always {
+                    echo 'Executing next step regardless of Unit Testing success or failure.'
+                }
+            }
         }
         stage('Dependency') {
             steps {
