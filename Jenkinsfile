@@ -11,14 +11,14 @@ pipeline {
                 }
             }
         }
-        stage('Dependency check') {
+        stage('Coverage') {
             steps {
                 script {
                     attendance.callCoverage()
                 }
             }
         }
-        stage('Coverage') {
+        stage('Dependency') {
             steps {
                 script {
                     attendance.callDependency()
