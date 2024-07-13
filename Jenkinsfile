@@ -22,13 +22,6 @@ pipeline {
                 }
             }
         }
-        stage('Dependency') {
-            steps {
-                script {
-                    attendance.callDependency()
-                }
-            }
-        }
         stage('Coverage') {
             steps {
                 script {
@@ -36,6 +29,14 @@ pipeline {
                 }
             }
         }
+        stage('Dependency') {
+            steps {
+                script {
+                    attendance.callDependency()
+                }
+            }
+        }
+       
         
     }
 }

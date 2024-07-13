@@ -2,7 +2,7 @@
 import org.python.Checkout
 import org.python.Sonarqube
 import org.python.Dependency
-// import org.python.Coverage
+import org.python.CoveragePython
 // import org.python.UnitTesting
 
 
@@ -20,9 +20,9 @@ def callDependency() {
     new Dependency().call()
 }
 
-// def callCoverage() {
-//     new Coverage.call()
-// }
+def callCoverage() {
+    new CoveragePython.call()
+}
 
 
 
