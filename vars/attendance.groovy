@@ -14,6 +14,10 @@ def sonarqubecall(String projectKey, String sourcesDir, String sonarToken) {
     new Sonarqube().call(projectKey, sourcesDir, sonarToken)
 }
 
+def call_unit_testing() {
+    new UnitTesting().call()
+}
+
 def call_dependency() {
     new Dependency().call()
 }
@@ -22,6 +26,4 @@ def call_dependency() {
 //     new CoveragePython.call()
 // }
 
-def call_unit_testing() {
-    new UnitTesting().call()
-}
+

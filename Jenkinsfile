@@ -35,7 +35,7 @@ pipeline {
         stage('Dependency') {
             steps {
                 script {
-                    attendance.callDependency()
+                    attendance.call_dependency()
                 }
             }
         }
