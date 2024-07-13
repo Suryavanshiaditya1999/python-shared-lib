@@ -8,6 +8,7 @@ pipeline {
     }
     
     stages {
+        
         stage('git checkout') {
             steps {
                 script {
@@ -24,15 +25,25 @@ pipeline {
             }
         }
 
-        // stage('Unit Testing') {
-        //     steps {
-        //         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-        //             script {
-        //                 attendance.call_unit_testing()
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Unit Testing') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        attendance.call_unit_testing()
+                    }
+                }
+            }
+        }
+
+        stage('coverage python') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        attendance.call_coverage()
+                    }
+                }
+            }
+        }
 
         stage('Dependency') {
             steps {
@@ -44,13 +55,6 @@ pipeline {
             }
         }
         
-        // stage('Dependency') {
-        //     steps {
-        //         script {
-        //             attendance.calldependency()
-        //         }
-        //     }
-        // }
                
     }
 }

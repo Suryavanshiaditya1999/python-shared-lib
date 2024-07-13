@@ -2,8 +2,8 @@
 import org.python.Checkout
 import org.python.Sonarqube
 import org.python.Dependency
-// import org.python.CoveragePython
 import org.python.UnitTesting
+import org.python.CoveragePython
 
 
 def checkoutgit(String gitUrl, String branch = 'main') {
@@ -16,6 +16,10 @@ def sonarqubecall(String projectKey, String sourcesDir, String sonarToken) {
 
 def call_unit_testing() {
     new UnitTesting().call()
+}
+
+def call_coverage() {
+    new CoveragePython.call()
 }
 
 def calldependency() {
