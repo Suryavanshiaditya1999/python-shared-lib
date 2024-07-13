@@ -11,13 +11,13 @@ pipeline {
                 }
             }
         }
-        // stage('Coverage') {
-        //     steps {
-        //         script {
-        //             attendance.callCoverage()
-        //         }
-        //     }
-        // }
+        stage('Coverage') {
+            steps {
+                script {
+                    attendance.callCoverage()
+                }
+            }
+        }
         stage('Dependency') {
             steps {
                 script {

@@ -1,4 +1,4 @@
-import org.python.CoveragePython
+import org.python.Coverage
 import org.python.Dependency
 // import org.python.SonarQube
 // import org.python.UnitTesting
