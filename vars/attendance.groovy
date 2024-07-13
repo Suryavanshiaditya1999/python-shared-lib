@@ -3,7 +3,7 @@ import org.python.Checkout
 import org.python.Sonarqube
 import org.python.Dependency
 import org.python.UnitTesting
-import org.python.CoveragePython
+import org.python.CodeCoverage
 
 
 def checkoutgit(String gitUrl, String branch = 'main') {
@@ -19,7 +19,7 @@ def call_unit_testing() {
 }
 
 def call_coverage() {
-    new CoveragePython.call()
+    new CodeCoverage.call()
 }
 
 def calldependency() {
