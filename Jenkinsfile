@@ -14,7 +14,7 @@ pipeline {
         stage('Sonarqube') {
             steps {
                 script {
-                    attendance.callSonarqube()
+                    attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
                 }
             }
         }

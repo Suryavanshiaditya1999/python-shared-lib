@@ -14,8 +14,8 @@ def checkoutgit(String gitUrl, String branch = 'main') {
 //     new Coverage.call()
 // }
 
-def callSonarqube() {
-    new Sonarqube().call()
+def sonarqubecall(String projectKey, String sourcesDir, String sonarToken) {
+    new SonarQube().call(projectKey, sourcesDir, sonarToken)
 }
 
 // def callDependency() {
