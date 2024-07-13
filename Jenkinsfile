@@ -15,6 +15,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Sonarqube') {
             steps {
                 script {
@@ -22,6 +23,7 @@ pipeline {
                 }
             }
         }
+
         stage('Unit Testing') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -35,11 +37,10 @@ pipeline {
         stage('Dependency') {
             steps {
                 script {
-                    attendance.call_dependency()
+                    attendance.calldependency()
                 }
             }
         }
-       
-        
+               
     }
 }

@@ -18,7 +18,7 @@ def call_unit_testing() {
     new UnitTesting().call()
 }
 
-def call_dependency() {
+def calldependency() {
     new Dependency().call()
 }
 
