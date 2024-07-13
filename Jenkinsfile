@@ -14,7 +14,7 @@ pipeline {
         stage('Dependency check') {
             steps {
                 script {
-                    attendance.callDependency()
+                    attendance.callCoverage()
                 }
             }
         }
