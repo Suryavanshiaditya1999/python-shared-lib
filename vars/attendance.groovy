@@ -19,7 +19,7 @@ def call_unit_testing() {
 }
 
 def call_coverage() {
-    new CodeCoverage.call()
+    new CodeCoverage().call()
 }
 
 def calldependency() {
