@@ -1,7 +1,7 @@
 // import org.python.Coverage
 import org.python.Checkout
 import org.python.Sonarqube
-// import org.python.Dependency
+import org.python.Dependency
 
 // import org.python.UnitTesting
 
@@ -18,9 +18,9 @@ def sonarqubecall(String projectKey, String sourcesDir, String sonarToken) {
     new Sonarqube().call(projectKey, sourcesDir, sonarToken)
 }
 
-// def callDependency() {
-//     new Dependency().call()
-// }
+def callDependency() {
+    new Dependency().call()
+}
 
 
 
