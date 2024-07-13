@@ -29,13 +29,13 @@ pipeline {
                 }
             }
         }
-        // stage('Sonarqube') {
-        //     steps {
-        //         script {
-        //             attendance.callSonarqube()
-        //         }
-        //     }
-        // }
+        stage('Coverage') {
+            steps {
+                script {
+                    attendance.callSonarqube()
+                }
+            }
+        }
         
     }
 }
