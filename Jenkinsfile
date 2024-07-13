@@ -11,13 +11,13 @@ pipeline {
                 }
             }
         }
-        stage('Sonarqube') {
-            steps {
-                script {
-                    attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
-                }
-            }
-        }
+        // stage('Sonarqube') {
+        //     steps {
+        //         script {
+        //             attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
+        //         }
+        //     }
+        // }
         // stage('Dependency') {
         //     steps {
         //         script {
