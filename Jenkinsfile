@@ -22,10 +22,10 @@ pipeline {
                 }
             }
         }
-        stage('Coverage') {
+        stage('Unit Testing') {
             steps {
                 script {
-                    attendance.callCoverage()
+                    attendance.call_unit_testing()
                 }
             }
         }
