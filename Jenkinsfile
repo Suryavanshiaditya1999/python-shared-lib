@@ -11,20 +11,20 @@ pipeline {
                 }
             }
         }
-        stage('Sonarqube') {
-            steps {
-                script {
-                    attendance.callSonarqube()
-                }
-            }
-        }
-        // stage('Dependency') {
+        // stage('Sonarqube') {
         //     steps {
         //         script {
-        //             attendance.callDependency()
+        //             attendance.callSonarqube()
         //         }
         //     }
         // }
+        stage('Dependency') {
+            steps {
+                script {
+                    attendance.callDependency()
+                }
+            }
+        }
         // stage('Sonarqube') {
         //     steps {
         //         script {
