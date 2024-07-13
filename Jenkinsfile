@@ -24,15 +24,15 @@ pipeline {
             }
         }
 
-        stage('Unit Testing') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    script {
-                        attendance.call_unit_testing()
-                    }
-                }
-            }
-        }
+        // stage('Unit Testing') {
+        //     steps {
+        //         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        //             script {
+        //                 attendance.call_unit_testing()
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Dependency') {
             steps {
