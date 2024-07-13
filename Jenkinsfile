@@ -32,7 +32,7 @@ pipeline {
         stage('Coverage') {
             steps {
                 script {
-                    attendance.callSonarqube()
+                    attendance.callCoverage()
                 }
             }
         }
