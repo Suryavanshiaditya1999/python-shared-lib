@@ -25,21 +25,21 @@ pipeline {
             }
         }
 
-        stage('Unit Testing') {
+        stage('Coverage') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
-                        attendance.call_unit_testing()
+                        attendance.call_coverage()
                     }
                 }
             }
         }
 
-        stage('coverage python') {
+        stage('Unit Testing') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
-                        attendance.call_coverage()
+                         attendance.call_unit_testing()
                     }
                 }
             }
