@@ -29,6 +29,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
+                        sh ' echo"code coverage" '
                         attendance.call_coverage()
                     }
                 }
@@ -39,6 +40,7 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
+                        sh ' echo"Unit Testing" '
                          attendance.call_unit_testing()
                     }
                 }
