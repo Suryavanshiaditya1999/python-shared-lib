@@ -5,7 +5,7 @@ def call() {
       python3 -m venv myenv
       . myenv/bin/activate
       echo "Workspace directory: ${workspaceDir}"
-      pip install -r ${workspaceDir}/requirments.txt
+      pip install -r requirments.txt
       ${DEPENDENCY_CHECK_HOME}/bin/dependency-check.sh --scan . --format HTML
     '''
     archiveArtifacts artifacts: '**/dependency-check-report.html', allowEmptyArchive: true
