@@ -4,7 +4,8 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN') // Replace with your credential ID
+        SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN')
+        DEPENDENCY_CHECK_HOME = tool 'Dependency-Check'  // Replace with your credential ID
     }
     
     stages {
