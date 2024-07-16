@@ -30,6 +30,18 @@ pipeline {
             }
         }
 
+        stage('Trivy Scan') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        echo 'trivy scan'
+                        generic.trivyinstaller('https://github.com/Suryavanshiaditya1999/attendace.git')
+                        // archiveArtifacts artifacts: 'CredScanReport'
+                    }
+                }
+            }
+        }
+
        
         stage('Sonarqube') {
             steps {
