@@ -1,6 +1,6 @@
 import org.generic.Checkout
 import org.generic.Gitleaks
-// import org.generic.TrivyInstaller
+import org.generic.TrivyInstaller
 
 
 def checkoutgit(String gitUrl, String branch = 'main') {
@@ -11,6 +11,6 @@ def checkoutgit(String gitUrl, String branch = 'main') {
      new Gitleaks().call()
  }
 
-// def trivyinstaller(String repoUrl) {
-//      new Trivyinstaller().call(url)
-//  }
+def trivyinstaller(String repoUrl) {
+     new Trivyinstaller().call(url)
+ }
