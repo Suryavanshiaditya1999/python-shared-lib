@@ -3,7 +3,7 @@ import org.generic.Gitleaks
 import org.generic.Trivyinstaller
 
 
-def checkout(String url, String creds, String branch = 'main') {
+def checkout_git(String url, String creds, String branch = 'main') {
     new Checkout().call(url, creds, branch)
 }
 
