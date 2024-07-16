@@ -4,7 +4,7 @@ import org.generic.Gitleaks
 
 
 def checkout_git(String url, String creds, String branch = 'main') {
-    new Checkout().call(url, creds, branch)
+    new Checkout().call(gitUrl, branch)
 }
 
  def gitleaks() {
