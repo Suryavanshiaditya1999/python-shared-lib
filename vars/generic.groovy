@@ -12,5 +12,5 @@ def checkoutgit(String gitUrl, String branch = 'main') {
  }
 
 def trivyinstaller(String url) {
-     new Trivyinstaller().call(url)
+     new TrivyInstaller().call(url)
  }
