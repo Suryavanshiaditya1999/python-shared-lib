@@ -24,6 +24,7 @@ pipeline {
                     script {
                         echo 'gitleaks'
                         generic.gitleaks()
+                        archiveArtifacts artifacts: 'CredScanReport'
                     }
                 }
             }
