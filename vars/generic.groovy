@@ -1,6 +1,6 @@
 import org.generic.Checkout
 import org.generic.Gitleaks
-import org.generic.Trivyinstaller
+import org.generic.TrivyInstaller
 
 
 def checkout_git(String url, String creds, String branch = 'main') {
