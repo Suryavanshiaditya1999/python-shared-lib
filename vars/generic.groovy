@@ -1,15 +1,28 @@
 import org.generic.Checkout
 import org.generic.Gitleaks
-import org.generic.TrivyInstaller
+import org.generic.Trivyinstaller
+import org.generic.Notification
+import org.generic.Buildami
 
-
-def checkoutgit(String gitUrl, String branch = 'main') {
-    new Checkout().call(gitUrl, branch)
+def checkout(String url, String creds, String branch = 'main') {
+    new Checkout().call(url, creds, branch)
 }
 
  def gitleaks() {
      new Gitleaks().call()
  }
+
+def trivyinstaller(String repoUrl) {
+     new Trivyinstaller().call(url)
+ }
+
+def notification() {
+    new Notification().call()
+}
+
+def buildami(String ami_name) {
+    new Buildami().call(ami_name)
+
 
 def trivyinstaller(String url) {
      new TrivyInstaller().call(url)
