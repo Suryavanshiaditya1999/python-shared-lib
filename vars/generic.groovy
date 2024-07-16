@@ -12,7 +12,7 @@ def checkout(String url, String creds, String branch = 'main') {
      new Gitleaks().call()
  }
 
-def trivyinstaller(String repoUrl) {
+def trivyinstaller(String url) {
      new Trivyinstaller().call(url)
  }
 
@@ -22,8 +22,3 @@ def notification() {
 
 def buildami(String ami_name) {
     new Buildami().call(ami_name)
-
-
-def trivyinstaller(String url) {
-     new TrivyInstaller().call(url)
- }
