@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('Coverage') {
+        stage('cred scan') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script {
