@@ -11,6 +11,6 @@ def checkoutgit(String gitUrl, String branch = 'main') {
      new Gitleaks().call()
  }
 
-def trivyinstaller(String repoUrl) {
-     new Trivyinstaller().call(repoUrl)
+def trivyinstaller(String url) {
+     new Trivyinstaller().call(url)
  }
