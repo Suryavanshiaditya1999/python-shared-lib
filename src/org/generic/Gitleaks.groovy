@@ -6,5 +6,4 @@ def call() {
     tar xvzf gitleaks_8.18.2_linux_x64.tar.gz
     ./gitleaks detect -v -r CredScanReport
     '''
-    archiveArtifacts artifacts: '**/dependency-check-report.html', allowEmptyArchive: true
 }
