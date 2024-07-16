@@ -1,63 +1,40 @@
 @Library('shared-lib') _
 
-pipeline {
-    agent any
+node {
+    // Environment variables
+    env.SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN')
+    env.DEPENDENCY_CHECK_HOME = tool 'Dependency-Check'  // Replace with your credential ID
 
-    environment {
-        SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN')
-        DEPENDENCY_CHECK_HOME = tool 'Dependency-Check'  // Replace with your credential ID
-    }
-    
-    stages {
-        
+    try {
         stage('git checkout') {
-            steps {
-                script {
-                    attendance.checkoutgit('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
-                }
-            }
+            attendance.checkoutgit('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
         }
-        
+
         stage('Sonarqube') {
-            steps {
-                script {
-                    attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
-                }
-            }
+            attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
         }
 
         stage('Coverage') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    script {
-                        echo 'coverage'
-                        attendance.call_coverage()
-                    }
-                }
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                echo 'coverage'
+                attendance.call_coverage()
             }
         }
 
         stage('Unit Testing') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    script {
-                         echo 'Testing'
-                         attendance.call_unit_testing()
-                    }
-                }
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                echo 'Testing'
+                attendance.call_unit_testing()
             }
         }
 
         stage('Dependency') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    script {
-                        attendance.calldependency()
-                    }
-                }
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                attendance.calldependency()
             }
         }
-        
-               
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
     }
 }
