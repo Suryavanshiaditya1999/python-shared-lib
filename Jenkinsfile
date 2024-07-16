@@ -13,7 +13,7 @@ pipeline {
         stage('git checkout') {
             steps {
                 script {
-                    generic.checkout_git('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
+                    generic.checkoutgit('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
                 }
             }
         }
