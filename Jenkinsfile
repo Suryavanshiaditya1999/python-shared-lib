@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN')
+        // SONARQUBE_TOKEN = credentials('SONARQUBE_TOKEN')
         DEPENDENCY_CHECK_HOME = tool 'Dependency-Check'  // Replace with your credential ID
     }
     
@@ -36,20 +36,20 @@ pipeline {
                     script {
                         echo 'trivy scan'
                         generic.trivyinstaller('https://github.com/Suryavanshiaditya1999/attendace.git')
-                        // archiveArtifacts artifacts: 'CredScanReport'
+                        archiveArtifacts artifacts: 'CredScanReport'
                     }
                 }
             }
         }
 
        
-        stage('Sonarqube') {
-            steps {
-                script {
-                    attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
-                }
-            }
-        }
+        // stage('Sonarqube') {
+        //     steps {
+        //         script {
+        //             attendance.sonarqubecall('attendance-api', './', SONARQUBE_TOKEN)
+        //         }
+        //     }
+        // }
 
         stage('Coverage') {
             steps {
