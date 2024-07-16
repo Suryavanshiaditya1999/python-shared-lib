@@ -13,10 +13,19 @@ pipeline {
         stage('git checkout') {
             steps {
                 script {
-                    attendance.checkoutgit('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
+                    generic.checkout_git('https://github.com/Suryavanshiaditya1999/attendace.git', 'master')
                 }
             }
         }
+
+        stage('cred scan') {
+            steps {
+                script {
+                    generic.gitleaks()
+                }
+            }
+        }
+
         
         stage('Sonarqube') {
             steps {
