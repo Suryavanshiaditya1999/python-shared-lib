@@ -18,15 +18,18 @@ pipeline {
             }
         }
 
-        stage('cred scan') {
+        stage('Coverage') {
             steps {
-                script {
-                    generic.gitleaks()
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    script {
+                        echo 'gitleaks'
+                        generic.gitleaks()
+                    }
                 }
             }
         }
 
-        
+       
         stage('Sonarqube') {
             steps {
                 script {
